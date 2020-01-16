@@ -7,7 +7,26 @@ let x = canvas.height / 2 - 30 ;
 let y = canvas.width - 50;
 
 // space ship direction move control
-let xDirection = 1;
+let xDirection = canvas.width /2 - 30;
+// event by pressing key
+document.onkeydown = checkKey;
+
+// function detect what presst
+function checkKey(e) {
+
+    e = e || window.event;
+
+    if (e.keyCode == '37') {
+        xDirection = xDirection -10;
+    }
+    else if (e.keyCode == '39') {
+        xDirection = xDirection + 10;
+    }
+    else if (e.keyCode == '32') {
+       // space press
+    }
+
+}
 
 // fire direction move control
 let yDirectionShooting = 1;
@@ -32,10 +51,10 @@ ctx.fillStyle = "deeppink";
 ctx.fill();
 ctx.stroke();
 
-if (x > (canvas.width - 60) || x < 0){
+if (x > (canvas.width - 90) || x < 30){
     xDirection = -xDirection
 }
-x += xDirection*4
+x = xDirection
 
 }
 draw();
