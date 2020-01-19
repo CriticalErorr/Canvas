@@ -16,16 +16,16 @@ function checkKey(e) {
 
     e = e || window.event;
     // l key
-    if (e.keyCode == '37') {
+    if (e.keyCode == '37' && x >= 30) {
         xDirection = xDirection - 10;
     }
     // r key
-    else if (e.keyCode == '39') {
+    else if (e.keyCode == '39' && x <= canvas.width - 90) {
         xDirection = xDirection + 10;
     }
     // space
     else if (e.keyCode == '32') {
-        yDirectionShooting = +15;
+        yDirectionShooting = +5;
     }
 
 }
@@ -62,9 +62,6 @@ function draw() {
     ctx.fill();
     ctx.stroke();
 
-    if (x > (canvas.width - 90) || x < 30) {
-        xDirection = -xDirection
-    }
     x = xDirection
 
     if (startCanonBall < 10) {
